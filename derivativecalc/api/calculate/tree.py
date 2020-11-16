@@ -1,5 +1,5 @@
 import queue
-from utils import build_tree_string, is_var_expr
+from .utils import build_tree_string, is_var_expr
 
 class TreeNode():
     

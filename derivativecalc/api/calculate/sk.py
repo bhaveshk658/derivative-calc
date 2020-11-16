@@ -3,7 +3,7 @@ import operator
 import queue
 import re
 
-from tree import (
+from .tree import (
     SumNode,
     DifferenceNode, 
     ProductNode, 
