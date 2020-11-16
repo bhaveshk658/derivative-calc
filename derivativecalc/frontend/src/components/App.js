@@ -7,7 +7,7 @@ import Axios from "axios";
 export default class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {expression: ''};
+        this.state = {expression: '', derivative: ''};
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
@@ -18,25 +18,16 @@ export default class App extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        //const data = new FormData(event.target);
-        /*
-        const form = event.target;
-        const data = {};
-        for (let i=0; i < form.elements.length; i++) {
-            const elem = form.elements[i];
-            data[elem.name] = elem.value
-        }
-        */
         const data = this.state.expression
         console.log(data)
-
-        fetch('/api/get-derivative/', {
-            method: "POST",
-            headers: {
-                'Accept':'application/json',
-                'Content-type':'application/json',
-            },
-            body: data,
+        Axios.post('http://127.0.0.1:8000/api/get-derivative/', {
+            expression: data
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
         });
 
         alert('Submitted.');
@@ -52,8 +43,9 @@ export default class App extends Component {
                                 <input type='text' onChange={this.handleChange} />
                             </label>
                         </fieldset>
-                        <input type="submit" value="Calculatex" />
+                        <input type="submit" value="Calculate" />
                     </form>
+                    <p>{this.state.derivative}</p>
                 </div>);
     }
 }
