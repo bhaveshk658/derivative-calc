@@ -4,6 +4,10 @@ html, body {
     padding: 0;
 }
 
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
 #main {
     position: fixed;
     width: 100%;

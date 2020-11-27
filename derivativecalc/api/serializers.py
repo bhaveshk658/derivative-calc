@@ -9,5 +9,5 @@ class CalculationSerializer(serializers.ModelSerializer):
 class GetDerivativeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Calculation
-        fields = ('f')
+        fields = ('f', 'derivative')
         
