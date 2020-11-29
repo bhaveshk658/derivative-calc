@@ -104,6 +104,8 @@
 
 /*! export ariaHidden [provided] [no usage info] [missing usage info prevents renaming] */
 
+/*! export body [provided] [no usage info] [missing usage info prevents renaming] */
+
 /*! export cloneElement [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export cloneElement [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react/cjs/react.production.min.js .cloneElement */
@@ -191,6 +193,8 @@
 /*! export hexToRgb [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export hslToRgb [provided] [no usage info] [missing usage info prevents renaming] */
+
+/*! export html [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export hydrate [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -492,6 +496,10 @@
   !*** ./src/components/App.js ***!
   \*******************************/
 
+/*!********************************!*\
+  !*** ./src/components/Page.js ***!
+  \********************************/
+
 /*!*************************************!*\
   !*** ./node_modules/react/index.js ***!
   \*************************************/
@@ -543,10 +551,6 @@
 /*!********************************************************!*\
   !*** ./node_modules/react/cjs/react.production.min.js ***!
   \********************************************************/
-
-/*!*********************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/Grid/Grid.js ***!
-  \*********************************************************/
 
 /*!*********************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/Grow/Grow.js ***!
@@ -733,6 +737,10 @@
   \*****************************************************************/
 
 /*!*****************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/styles/makeStyles.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/withStyles.js ***!
   \*****************************************************************/
 
@@ -778,6 +786,10 @@
 
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/defineProperty.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Container/Container.js ***!
   \*******************************************************************/
 
 /*!*******************************************************************!*\
@@ -903,6 +915,10 @@
 /*!**********************************************************************!*\
   !*** ./node_modules/jss-plugin-nested/dist/jss-plugin-nested.esm.js ***!
   \**********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/CssBaseline/CssBaseline.js ***!
+  \***********************************************************************/
 
 /*!***********************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/FilledInput/FilledInput.js ***!

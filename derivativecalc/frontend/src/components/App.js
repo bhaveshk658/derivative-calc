@@ -5,6 +5,11 @@ import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
+import styled from "styled-components";
+import Page from "./Page";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 
 import { render } from "react-dom";
  
@@ -17,7 +22,6 @@ export default class App extends Component {
     }
 
     setDerivative(data) {
-        console.log(data)
         this.setState({derivative: data.derivative});
     }
 
@@ -37,46 +41,77 @@ export default class App extends Component {
         fetch('/api/get-derivative', requestOptions).then((response) =>
             response.json()
         ).then((data) => self.setDerivative(data));
-
-
     }
+
+    useStyles = makeStyles((theme) => ({
+        paper: {
+          marginTop: theme.spacing(20),
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'left',
+        },
+        avatar: {
+          margin: theme.spacing(1),
+          backgroundColor: theme.palette.secondary.main,
+        },
+        form: {
+          width: '100%', // Fix IE 11 issue.
+          marginTop: theme.spacing(1),
+        },
+        submit: {
+          margin: theme.spacing(3, 0, 2),
+        },
+
+      }));
+
 
     render() {
-       return <Grid container spacing={2}>
-                <Grid item xs={12} align="center">
-                    <Typography component="h4" variant="h4">
+        const classes = this.useStyles;
+        return (
+            <Container component="main" maxWidth="xs">
+                <CssBaseline />
+                    <div className={classes.paper} >
+                        <Typography component="h1" variant="h5" align="center">
                         Derivative Calculator
-                    </Typography>
-                </Grid>
-                <Grid item xs={12} align="center">
-                    <FormControl>
-                            <TextField required="true" 
-                                    type="string" 
-                                    defaultValue={""}
-                                    inputProps={{
-                                        style: { textAlign: "center"}
-                                    }}
-                                    onChange={this.handleChange}>
-                            </TextField>
-                            <FormHelperText>
-                                <div align="center">
-                                    Enter your expression
-                                </div>
-                            </FormHelperText>
-                    </FormControl>
-                </Grid>
-                <Grid item xs={12} align="center">
-                    <Typography component="h6" variant="h6">
-                        {this.state.derivative}
-                    </Typography>
-                </Grid>
-                <Grid item xs={12} align="center">
-                    <Button color="secondary" 
-                            variant="contained" 
-                            onClick={this.handleSubmit}>Calculate!</Button>
-                </Grid>
-              </Grid>;
+                        </Typography>
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="Expression"
+                            label="Expression"
+                            name="Expression"
+                            autoComplete="Expression"
+                            autoFocus
+                            onChange={this.handleChange}
+                        />
+                        <TextField
+                            id="filled-helperText"
+                            variant="outlined"
+                            margin="normal"
+                            value={this.state.derivative}
+                            fullWidth
+                            name="Derivative"
+                            label="Derivative"
+                            type="Derivative"
+                            id="Derivative"
+                            autoComplete="current-Derivative"
+                        />
+                        <Button
+                            type="button"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            onClick={this.handleSubmit}
+                        >
+                            Calculate
+                        </Button>
+                    </div>
+            </Container>
+        );
     }
+
 }
 
 const appDiv = document.getElementById("app");

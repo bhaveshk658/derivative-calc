@@ -10,7 +10,7 @@ from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.renderers import JSONRenderer, TemplateHTMLRenderer
 
 import json
-from .calculate import sk
+from .calculate import eval
 
 # Create your views here.
 
@@ -25,7 +25,7 @@ class GetDerivativeView(APIView):
         serializer = self.serializer_class(data=request.data)
         if True:#serializer.is_valid():
             f = request.data['f']
-            derivative = sk.derivate(f)
+            derivative = eval.derivate(f)
             
             calculation = Calculation(f=f, derivative=derivative)
             return Response(GetDerivativeSerializer(calculation).data, status=status.HTTP_201_CREATED)
@@ -37,7 +37,7 @@ class GetDerivativeView(APIView):
 def post(request):
     data = json.loads(request.body.decode('utf-8'))
     f = data['expression']
-    derivative = sk.derivate(f)
+    derivative = eval.derivate(f)
 
     calculation = Calculation(f=f, derivative=derivative)
 
